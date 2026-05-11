@@ -1,6 +1,6 @@
-# Documento de Diseño y Análisis - Agente TORCS - Examen III
+ # Documento de Diseño y Análisis - Agente TORCS - Examen III
 
-Fecha: 6 de mayo de 2026
+Fecha: 11 de mayo de 2026
 
 ## 1. Objetivo del proyecto
 
@@ -195,6 +195,87 @@ collision: -310.000
 ```
 
 Interpretacion: una conduccion rapida y centrada da recompensa positiva, mientras que choque, salida o sentido contrario quedan fuertemente castigados.
+
+## Función de recompensa
+
+La recompensa total del agente se calcula como la suma de recompensas positivas menos penalizaciones:
+
+$$
+R_t =
+R_{velocidad}
++ R_{supervivencia}
++ R_{centrado}
++ R_{suavidad}
++ R_{frenado\_anticipado}
++ R_{frenado\_curva}
++ R_{direccion\_correcta}
++ R_{alineacion\_curva}
++ R_{progreso}
++ R_{bonus\_curva}
+-
+P_{seguridad}
+$$
+
+Donde:
+
+$$
+P_{seguridad} =
+P_{velocidad\_lateral}
++ P_{angulo}
++ P_{descentrado}
++ P_{borde}
++ P_{sobrevelocidad\_curva}
++ P_{control}
++ P_{oscilacion}
+P_{sentido\_contrario}
++ P_{salida\_pista}
++ P_{colision}
+$$
+
+De forma resumida:
+
+$$
+R_t =
+R_{conduccion\_estable}
++
+R_{avance}
++
+R_{curvas}
+-
+P_{errores\_graves}
+$$
+
+La recompensa aumenta cuando el coche:
+
+- avanza hacia adelante;
+- mantiene buena velocidad;
+- se mantiene centrado;
+- está alineado con la pista;
+- frena antes o durante una curva;
+- gira hacia la dirección correcta;
+- progresa en la pista.
+
+La recompensa disminuye cuando el coche:
+
+- va muy lento;
+- se detiene;
+- derrapa o tiene mucha velocidad lateral;
+- se aleja del centro;
+- se acerca demasiado al borde;
+- va demasiado rápido en curva;
+- gira de forma brusca;
+- va en sentido contrario;
+- se sale de la pista;
+- choca o recibe daño.
+
+En términos simples:
+
+$$
+R_t =
+(\text{velocidad útil} + \text{centrado} + \text{alineación} + \text{progreso})
+-
+(\text{choques} + \text{salidas} + \text{sentido contrario} + \text{inestabilidad})
+$$
 
 ## 6. Entrenamiento con DQN
 
