@@ -1,0 +1,60 @@
+{
+  "source": "models\\dqn_torcs_agent.actions.json",
+  "actions": [
+    {
+      "steer": 0.0,
+      "accel": 1.0,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.04,
+      "accel": 1.0,
+      "brake": 0.0
+    },
+    {
+      "steer": -0.04,
+      "accel": 1.0,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.1,
+      "accel": 0.95,
+      "brake": 0.0
+    },
+    {
+      "steer": -0.1,
+      "accel": 0.95,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.2,
+      "accel": 0.85,
+      "brake": 0.0
+    },
+    {
+      "steer": -0.2,
+      "accel": 0.85,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.35,
+      "accel": 0.65,
+      "brake": 0.0
+    },
+    {
+      "steer": -0.35,
+      "accel": 0.65,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.0,
+      "accel": 0.45,
+      "brake": 0.0
+    },
+    {
+      "steer": 0.0,
+      "accel": 0.6,
+      "brake": 0.0
+    }
+  ]
+}
